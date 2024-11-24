@@ -10,6 +10,11 @@ namespace OpenMatchupServer.Server
     {
         private static ManualResetEvent allDone = new ManualResetEvent(false);
 
+        public MatchupServer()
+        {
+
+        }
+
         public static void StartListening()
         {
             // 서버가 바인드할 로컬 엔드포인트 설정
@@ -121,7 +126,7 @@ namespace OpenMatchupServer.Server
             }
         }
 
-        public static void Run(string[] args)
+        public void Run()
         {
             StartListening();
         }
