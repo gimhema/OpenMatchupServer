@@ -10,6 +10,7 @@ namespace OpenMatchupServer.Server
     public class MatchupServer
     {
         private static ManualResetEvent allDone = new ManualResetEvent(false);
+        private static PlayerManager playerManager = new PlayerManager();
 
         public MatchupServer()
         {
