@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace OpenMatchupServer.Player
 {
-    public class MatchMakingInfo
+    public record MatchMakingInfo
     {
         public int rating = 0;
 

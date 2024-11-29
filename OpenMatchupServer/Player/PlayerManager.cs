@@ -22,21 +22,21 @@ namespace OpenMatchupServer.Player
 
         public static PlayerManager Instance
         {
-        get
-        {
-            if (_instance == null)
+            get
             {
-                lock (_lock)
+                if (_instance == null)
                 {
-                    if (_instance == null)
+                    lock (_lock)
                     {
-                        _instance = new PlayerManager();
+                        if (_instance == null)
+                        {
+                            _instance = new PlayerManager();
+                        }
                     }
                 }
+                return _instance;
             }
-            return _instance;
         }
-    }
 
         public int TopKey()
         {
