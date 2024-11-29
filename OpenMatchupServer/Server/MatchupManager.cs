@@ -6,17 +6,20 @@ using System.Threading;
 using OpenMatchupServer.Player;
 using OpenMatchupServer.Algo;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace OpenMatchupServer.Server
 {
 
     public class MatchupManager
     {
-        private PriorityQueue<int, GamePlayer> matchWatingQueue = new PriorityQueue<int, GamePlayer>();
+        private Dictionary<int, GamePlayer> matchWaitingContainer = new Dictionary<int, GamePlayer>();
 
         public MatchupManager()
         {
-
+            
         }
+
+
     }
 }
