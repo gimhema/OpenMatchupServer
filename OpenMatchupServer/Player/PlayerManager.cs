@@ -8,13 +8,35 @@ namespace OpenMatchupServer.Player
 {
     public class PlayerManager
     {
+        private static PlayerManager _instance;
+        private static readonly object _lock = new object();
+
+
         public Dictionary<int, GamePlayer> playerContainer = new Dictionary<int, GamePlayer>();
         private int playerKey = 0;
 
-        public PlayerManager() 
+        private PlayerManager() 
         {
 
         }
+
+        public static PlayerManager Instance
+        {
+        get
+        {
+            if (_instance == null)
+            {
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new PlayerManager();
+                    }
+                }
+            }
+            return _instance;
+        }
+    }
 
         public int TopKey()
         {

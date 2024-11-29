@@ -10,9 +10,9 @@ namespace OpenMatchupServer.Server
     public class MatchupServer
     {
         private static ManualResetEvent allDone = new ManualResetEvent(false);
-        private static PlayerManager playerManager = new PlayerManager();
+        // private static PlayerManager playerManager = new PlayerManager();
 
-        private static MatchupManager matchupManager = new MatchupManager();
+        // private static MatchupManager matchupManager = new MatchupManager();
 
         public MatchupServer()
         {
@@ -70,7 +70,7 @@ namespace OpenMatchupServer.Server
                 new AsyncCallback(ReadCallback), state);
 
             GamePlayer newPlayer = new GamePlayer("", listener);
-            playerManager.AddNewPlayer(newPlayer);
+            PlayerManager.Instance.AddNewPlayer(newPlayer);
         }
 
         public static void ReadCallback(IAsyncResult ar)
