@@ -13,11 +13,31 @@ namespace OpenMatchupServer.Server
 
     public class MatchupManager
     {
-        
+        private static MatchupManager _instance;
 
-        public MatchupManager()
+        private static readonly object _lock = new object();
+
+        private MatchupManager()
         {
             
+        }
+
+        public static MatchupManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (_lock)
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new MatchupManager();
+                        }
+                    }
+                }
+                return _instance;
+            }
         }
 
 
