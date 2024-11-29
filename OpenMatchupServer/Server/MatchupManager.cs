@@ -16,14 +16,42 @@ namespace OpenMatchupServer.Server
         MaxNumCompetition = 2
     }
 
-    public struct Team
+    public class Team
     {
         List<GamePlayer> members;
+
+        public Team()
+        {
+            
+        }
+
+        public void Push(GamePlayer newPlayer)
+        {
+            if(members.Count >= (int)MatchSetting.MaxNumTeamMembers) {
+                return;
+            }
+            members.Add(newPlayer);
+        }
+
     }
 
-    public struct GameMatch
+    public class GameMatch
     {
         List<Team> competition;
+
+        public GameMatch()
+        {
+
+        }
+
+        public void Push(Team newTeam)
+        {
+            if (competition.Count >= (int)MatchSetting.MaxNumCompetition){
+                return;
+            }
+            competition.Add(newTeam);
+
+        }
     }
 
     public class MatchupManager
