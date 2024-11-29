@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace OpenMatchupServer.Player
 {
-    public class Player
+    public class GamePlayer
     {
         // 식별자
         public int id = 0;
@@ -19,11 +19,15 @@ namespace OpenMatchupServer.Player
         public Socket playerSocket = null;
 
 
-        public Player(int _id, string _name, Socket _socket) 
+        public GamePlayer(string _name, Socket _socket) 
         {
-            id = _id;
             name = _name;
             playerSocket = _socket;
+        }
+
+        public void SetId(int _id)
+        {
+            id = _id;
         }
 
     }

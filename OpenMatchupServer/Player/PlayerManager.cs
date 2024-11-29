@@ -8,19 +8,33 @@ namespace OpenMatchupServer.Player
 {
     public class PlayerManager
     {
-        public Dictionary<int, Player> playerContainer = new Dictionary<int, Player>();
+        public Dictionary<int, GamePlayer> playerContainer = new Dictionary<int, GamePlayer>();
+        private int playerKey = 0;
 
         public PlayerManager() 
         {
 
         }
 
-        public void AddNewPlayer(int id, Player newPlayer)
+        public int TopKey()
         {
-            playerContainer.Add(id, newPlayer);
+            return playerKey;
         }
 
-        public Player FindPlayerById(int id) 
+        public void IncreaseKey()
+        {
+            playerKey += 1;
+        }
+
+        public void AddNewPlayer(GamePlayer newPlayer)
+        {
+            int _top = TopKey();
+            newPlayer.SetId(_top);
+            playerContainer.Add(_top, newPlayer);
+            IncreaseKey();
+        }
+
+        public GamePlayer FindPlayerById(int id) 
         {
             return playerContainer[id];
         }

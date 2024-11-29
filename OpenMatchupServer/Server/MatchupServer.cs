@@ -66,6 +66,8 @@ namespace OpenMatchupServer.Server
             // 데이터 수신 시작
             handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                 new AsyncCallback(ReadCallback), state);
+
+            GamePlayer newPlayer = new GamePlayer("", listener);
         }
 
         public static void ReadCallback(IAsyncResult ar)
