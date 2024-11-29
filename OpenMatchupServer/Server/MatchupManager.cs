@@ -33,6 +33,11 @@ namespace OpenMatchupServer.Server
             members.Add(newPlayer);
         }
 
+        public void Clear()
+        {
+            members.Clear();
+        }
+
     }
 
     public class GameMatch
@@ -51,6 +56,11 @@ namespace OpenMatchupServer.Server
             }
             competition.Add(newTeam);
 
+        }
+
+        public void Clear()
+        {
+            competition.Clear();
         }
     }
 
