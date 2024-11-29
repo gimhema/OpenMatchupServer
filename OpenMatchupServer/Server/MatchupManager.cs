@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using OpenMatchupServer.Player;
+using OpenMatchupServer.Algo;
 
 namespace OpenMatchupServer.Server
 {
@@ -11,7 +12,7 @@ namespace OpenMatchupServer.Server
     {
         public MatchupManager()
         {
-            
+
         }
     }
 }
