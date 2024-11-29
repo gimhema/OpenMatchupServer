@@ -13,7 +13,7 @@ namespace OpenMatchupServer.Server
 
     public class MatchupManager
     {
-        private Dictionary<int, GamePlayer> matchWaitingContainer = new Dictionary<int, GamePlayer>();
+        
 
         public MatchupManager()
         {
