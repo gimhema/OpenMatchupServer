@@ -10,14 +10,20 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace OpenMatchupServer.Server
 {
+    enum MatchSetting
+    {
+        MaxNumTeamMembers = 5,
+        MaxNumCompetition = 2
+    }
+
     public struct Team
     {
         List<GamePlayer> members;
     }
 
-    public class GameMatch
+    public struct GameMatch
     {
-        List<Team> competitions;
+        List<Team> competition;
     }
 
     public class MatchupManager
