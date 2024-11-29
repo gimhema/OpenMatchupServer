@@ -68,6 +68,7 @@ namespace OpenMatchupServer.Server
                 new AsyncCallback(ReadCallback), state);
 
             GamePlayer newPlayer = new GamePlayer("", listener);
+            playerManager.AddNewPlayer(newPlayer);
         }
 
         public static void ReadCallback(IAsyncResult ar)
