@@ -8,18 +8,20 @@ using System.Threading;
 namespace OpenMatchupServer.Server
 {
 
-    public class ServeEventHandler
+    public class ServeEventRouter
     {
-        private static ServeEventHandler _instance;
+        private static ServeEventRouter _instance;
 
         private static readonly object _lock = new object();
 
-        private ServeEventHandler()
+        public delegate void ServeEventHandler(string message);
+
+        private ServeEventRouter()
         {
             
         }
 
-        public static ServeEventHandler Instance
+        public static ServeEventRouter Instance
         {
             get
             {
@@ -29,7 +31,7 @@ namespace OpenMatchupServer.Server
                     {
                         if (_instance == null)
                         {
-                            _instance = new ServeEventHandler();
+                            _instance = new ServeEventRouter();
                         }
                     }
                 }
