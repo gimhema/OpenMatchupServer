@@ -97,6 +97,14 @@ namespace OpenMatchupServer.Server
             }
         }
 
+        public async void Search()
+        {
+            while(true)
+            {
+                // Search Loop . . . .
+            }
+        }
+
 
     }
 }
