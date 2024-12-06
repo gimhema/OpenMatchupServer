@@ -135,9 +135,16 @@ namespace OpenMatchupServer.Server
             }
         }
 
-        public void Run()
+        public async void Run()
         {
+            var asyncTasks = new List<Task>
+            {
+                MatchupManager.Instance.Search()
+            };
+
             StartListening();
+
+            await Task.WhenAll(asyncTasks);
         }
 
         public class StateObject

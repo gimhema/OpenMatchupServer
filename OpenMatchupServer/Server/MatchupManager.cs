@@ -97,11 +97,12 @@ namespace OpenMatchupServer.Server
             }
         }
 
-        public async void Search()
+        public async Task Search()
         {
             while(true)
             {
                 // Search Loop . . . .
+                await Task.Delay(1000);
             }
         }
 
