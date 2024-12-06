@@ -21,8 +21,9 @@ namespace OpenMatchupServer.Server
         List<GamePlayer> members;
 
         public Team()
-        {
-            
+        {  
+            members= new List<GamePlayer>();
+            members.Clear();
         }
 
         public void Push(GamePlayer newPlayer)
@@ -46,7 +47,8 @@ namespace OpenMatchupServer.Server
 
         public GameMatch()
         {
-
+            competition = new List<Team>();
+            competition.Clear();
         }
 
         public void Push(Team newTeam)
