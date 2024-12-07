@@ -18,4 +18,17 @@ namespace OpenMatchupServer.Packets
         // Packet -> Json
         public abstract string Serialize();
     }
+
+    class PacketApplyMatchup : Packet
+    {
+        public override void Deserialize(string data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string Serialize()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
