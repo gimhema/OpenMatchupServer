@@ -92,21 +92,8 @@ namespace OpenMatchupServer.Server
                     Console.WriteLine($"수신된 데이터: {content}");
 
                     // 추가적으로 content에서 key 파싱하는 과정 필요함
-                    // var coneverted = JsonSerializer.Deserialize
                     
-                    /*
-                    string jsonString = "{\"Name\": \"Bob\", \"Age\": 30}";
-
-                    // JSON 문자열을 객체로 변환
-                    var person = JsonSerializer.Deserialize<Person>(jsonString);
-
-                    Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
-                    */
-
-
-                    string key = ""; // 임시 값
-                    
-                    ServeEventRouter.Instance.EventExecution(key, content);
+                    // ServeEventRouter.Instance.EventExecution(key, content);
 
                     // 응답 전송
                     Send(handler, "서버에서 받은 메시지: " + content);
