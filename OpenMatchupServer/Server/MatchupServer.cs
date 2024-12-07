@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading;
 using OpenMatchupServer.Player;
 using OpenMatchupServer.Packets;
+using Newtonsoft.Json.Linq;
 
 namespace OpenMatchupServer.Server
 {
@@ -16,6 +17,13 @@ namespace OpenMatchupServer.Server
         public MatchupServer()
         {
 
+        }
+
+        public static string GetFunctionIdByJString(string data)
+        {
+            var result = JObject.Parse(data);
+
+            return result["id"].ToString();
         }
 
         public static void StartListening()
@@ -93,7 +101,9 @@ namespace OpenMatchupServer.Server
 
                     // 추가적으로 content에서 key 파싱하는 과정 필요함
                     
-                    // ServeEventRouter.Instance.EventExecution(key, content);
+                    string key = GetFunctionIdByJString(content);
+
+                    ServeEventRouter.Instance.EventExecution(key, content);
 
                     // 응답 전송
                     Send(handler, "서버에서 받은 메시지: " + content);
