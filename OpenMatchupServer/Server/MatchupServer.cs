@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using OpenMatchupServer.Player;
 
@@ -90,6 +91,18 @@ namespace OpenMatchupServer.Server
                     Console.WriteLine($"수신된 데이터: {content}");
 
                     // 추가적으로 content에서 key 파싱하는 과정 필요함
+                    // var coneverted = JsonSerializer.Deserialize
+                    
+                    /*
+                    string jsonString = "{\"Name\": \"Bob\", \"Age\": 30}";
+
+                    // JSON 문자열을 객체로 변환
+                    var person = JsonSerializer.Deserialize<Person>(jsonString);
+            
+                    Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+                    */
+
+
                     string key = ""; // 임시 값
                     
                     ServeEventRouter.Instance.EventExecution(key, content);
