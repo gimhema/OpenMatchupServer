@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using OpenMatchupServer.Player;
+using OpenMatchupServer.Packets;
 
 namespace OpenMatchupServer.Server
 {
@@ -98,7 +99,7 @@ namespace OpenMatchupServer.Server
 
                     // JSON 문자열을 객체로 변환
                     var person = JsonSerializer.Deserialize<Person>(jsonString);
-            
+
                     Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
                     */
 
