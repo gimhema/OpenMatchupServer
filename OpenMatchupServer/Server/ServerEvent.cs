@@ -3,8 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Text.Json;
-
+using Newtonsoft.Json;
 
 namespace OpenMatchupServer.Server
 {
@@ -82,3 +81,38 @@ namespace OpenMatchupServer.Server
     }
 
 }
+
+
+/*
+
+string jsonString1 = @"
+        {
+          ""id"": 1,
+          ""name"": ""Alice"",
+          ""age"": 25
+        }";
+
+        string jsonString2 = @"
+        {
+          ""id"": 1,
+          ""title"": ""Engineer"",
+          ""department"": ""Development""
+        }";
+
+        // JSON 문자열을 JObject로 파싱
+        var jsonObject1 = JObject.Parse(jsonString1);
+        var jsonObject2 = JObject.Parse(jsonString2);
+
+        // 공통 ID 확인
+        if ((int)jsonObject1["id"] == (int)jsonObject2["id"])
+        {
+            Console.WriteLine($"ID: {jsonObject1["id"]}");
+            Console.WriteLine($"Name: {jsonObject1["name"]}, Age: {jsonObject1["age"]}");
+            Console.WriteLine($"Title: {jsonObject2["title"]}, Department: {jsonObject2["department"]}");
+        }
+        else
+        {
+            Console.WriteLine("IDs do not match.");
+        }
+
+*/
