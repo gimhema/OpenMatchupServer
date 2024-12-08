@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading;
 using OpenMatchupServer.Player;
 using OpenMatchupServer.Packets;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace OpenMatchupServer.Server
@@ -19,11 +20,34 @@ namespace OpenMatchupServer.Server
 
         }
 
+        
         public static string GetFunctionIdByJString(string data)
         {
-            var result = JObject.Parse(data);
+            try
+            {
+                // JSON 데이터를 파싱
+                var result = JObject.Parse(data);
 
-            return result["id"].ToString();
+                // "id" 필드가 존재하는지 확인하고 값을 반환
+                if (result["id"] != null)
+                {
+                    return result["id"].ToString();
+                }
+                else
+                {
+                    throw new Exception("The 'id' field is missing in the JSON data.");
+                }
+            }
+            catch (JsonReaderException ex)
+            {
+                // JSON 파싱 관련 예외 처리
+                return $"Invalid JSON format: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                // 일반적인 예외 처리
+                return $"Error: {ex.Message}";
+            }
         }
 
         public static void StartListening()

@@ -32,11 +32,13 @@ namespace OpenMatchupServer.Packets
             
         }
 
+        // data -> message class
         public override void Deserialize(string data)
         {
             throw new NotImplementedException();
         }
 
+        // message class -> data
         public override string Serialize()
         {
             throw new NotImplementedException();
