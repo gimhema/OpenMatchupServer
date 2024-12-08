@@ -69,7 +69,26 @@ namespace OpenMatchupServer.Packets
         // message class -> data
         public override string Serialize()
         {
-            throw new NotImplementedException();
+            try
+            {
+                // JObject를 사용해 JSON 문자열 생성
+                var jsonObject = new JObject
+                {
+                    ["id"] = funtionId,
+                    ["pID"] = pID,
+                    ["userName"] = name,
+                    ["ratingPoint"] = ratingPoint
+                };
+
+                // JSON 문자열로 변환
+                return jsonObject.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during serialization: {ex.Message}");
+                return string.Empty; // 오류 발생 시 빈 문자열 반환
+            }
         }
+
     }
 }
