@@ -71,7 +71,7 @@ namespace OpenMatchupServer.Server
             // ServeEventHandler goodbyeHandler = (msg) => Console.WriteLine($"Goodbye Handler: {msg}");
             // RegisterHandler("hello", helloHandler);
             // RegisterHandler("goodbye", goodbyeHandler);
-            RegisterHandler("1", Event_ApplyMatchup);
+            RegisterHandler("ApplyMatchup", Event_ApplyMatchup);
         }
 
         public void EventExecution(string eventKey, string message)
