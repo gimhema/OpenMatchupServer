@@ -13,7 +13,7 @@ namespace OpenMatchupServer.Packets
 {
     abstract class Packet
     {
-        public int funtionId {get; set;} = 0;
+        public string funcIdentifier {get; set;} = "0";
         // JSON -> Packet
         public abstract void Deserialize(string data);
 
@@ -45,7 +45,7 @@ namespace OpenMatchupServer.Packets
                     result["userName"] != null &&
                     result["ratingPoint"] != null)
                 {
-                    funtionId = int.Parse(result["id"].ToString());
+                    funcIdentifier = result["id"].ToString();
                     pID = int.Parse(result["pID"].ToString());
                     name = result["userName"].ToString();
                     ratingPoint = int.Parse(result["ratingPoint"].ToString());
@@ -74,7 +74,7 @@ namespace OpenMatchupServer.Packets
                 // JObject를 사용해 JSON 문자열 생성
                 var jsonObject = new JObject
                 {
-                    ["id"] = funtionId,
+                    ["id"] = funcIdentifier,
                     ["pID"] = pID,
                     ["userName"] = name,
                     ["ratingPoint"] = ratingPoint
