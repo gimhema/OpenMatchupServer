@@ -23,10 +23,10 @@ namespace OpenMatchupServer.Packets
 
     class PacketApplyMatchup : Packet
     {
-        private int pID {get; set;} = 0; 
-        private string name {get; set;} = "";
+        public int pID {get; set;} = 0; 
+        public string name {get; set;} = "";
 
-        private int ratingPoint {get; set;} = 0;
+        public int ratingPoint {get; set;} = 0;
 
         public PacketApplyMatchup()
         {
