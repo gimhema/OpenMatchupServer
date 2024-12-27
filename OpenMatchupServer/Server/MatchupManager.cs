@@ -68,7 +68,7 @@ namespace OpenMatchupServer.Server
 
     public class MatchupManager
     {
-        public Dictionary<int, MatchMakingInfo> matchContainer = new Dictionary<int, MatchMakingInfo>();
+        public Dictionary<int, GamePlayer> waitingPlayers = new Dictionary<int, GamePlayer>();
 
         private static MatchupManager _instance;
 
