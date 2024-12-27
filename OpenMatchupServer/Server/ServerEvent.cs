@@ -92,7 +92,7 @@ namespace OpenMatchupServer.Server
 
             GamePlayer applyer = PlayerManager.Instance.FindPlayerById(_pId);
             
-
+            MatchupManager.Instance.AddNewApply(applyer);
             
         }
 
