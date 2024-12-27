@@ -68,7 +68,8 @@ namespace OpenMatchupServer.Server
 
     public class MatchupManager
     {
-        public Dictionary<int, GamePlayer> waitingPlayers = new Dictionary<int, GamePlayer>();
+        // public Dictionary<int, GamePlayer> waitingPlayers = new Dictionary<int, GamePlayer>();
+        public Queue<GamePlayer> waitingQueue = new Queue<GamePlayer>();
 
         private static MatchupManager _instance;
 
@@ -104,6 +105,11 @@ namespace OpenMatchupServer.Server
                 // Search Loop . . . .
                 await Task.Delay(1000);
             }
+        }
+
+        public void AddNewApply(GamePlayer applyer)
+        {
+            waitingQueue.Enqueue(applyer);
         }
 
 

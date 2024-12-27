@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using Newtonsoft.Json;
 using OpenMatchupServer.Packets;
+using OpenMatchupServer.Player;
 
 namespace OpenMatchupServer.Server
 {
@@ -87,8 +88,11 @@ namespace OpenMatchupServer.Server
             packetApplyMatchup.Deserialize(msg);
 
             // Add to waiting container . . .
+            int _pId = packetApplyMatchup.pID;
 
+            GamePlayer applyer = PlayerManager.Instance.FindPlayerById(_pId);
             
+
             
         }
 
