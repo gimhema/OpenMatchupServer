@@ -75,9 +75,16 @@ namespace OpenMatchupServer.Server
 
         private static readonly object _lock = new object();
 
+        private AlgorithmSelector algoSelector = new AlgorithmSelector();
+
         private MatchupManager()
         {
             
+        }
+
+        public void Init()
+        {
+
         }
 
         public static MatchupManager Instance
